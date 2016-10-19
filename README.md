@@ -1,6 +1,6 @@
-# GoogleGeocodingApi
+# google-geocoding-api-elixir
 
-**TODO: Add description**
+An elixir wrapper for Google's geocoding API
 
 ## Installation
 
@@ -21,4 +21,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [applications: [:google_geocoding_api]]
     end
     ```
-

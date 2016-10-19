@@ -4,7 +4,7 @@ An elixir wrapper for Google's geocoding API
 
 ## NOTE
 
-This repository is currently in unstable beta and not reccomended for production use
+This repository is currently in unstable beta and not recommended for production use
 
 ## Installation
 

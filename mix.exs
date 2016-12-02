@@ -28,6 +28,6 @@ defmodule GoogleGeocodingApi.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:httpoison, "~> 0.9.0"},
-    {:poison, ">= 2.0.0 and <= 3.0"}]
+    {:poison, ">= 2.0.0 and <= 3.0.0"}]
   end
 end

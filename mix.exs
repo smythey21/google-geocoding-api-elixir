@@ -5,6 +5,7 @@ defmodule GoogleGeocodingApi.Mixfile do
     [app: :google_geocoding_api,
      version: "0.1.0",
      elixir: "~> 1.3",
+     elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -17,6 +18,10 @@ defmodule GoogleGeocodingApi.Mixfile do
     [applications: [:logger, :httpoison]]
   end
 
+  # Specifies which paths to compile per environment.
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
+
   # Dependencies can be Hex packages:
   #
   #   {:mydep, "~> 0.3.0"}
@@ -28,6 +33,7 @@ defmodule GoogleGeocodingApi.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:httpoison, "~> 0.9.0"},
-    {:poison, ">= 2.0.0 and <= 3.0.0"}]
+    {:poison, ">= 2.0.0 and <= 3.0.0"},
+    {:exvcr, "~> 0.7", only: :test}]
   end
 end

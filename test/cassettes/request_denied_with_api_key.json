@@ -1,0 +1,32 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://maps.googleapis.com/maps/api/geocode/json?address=30+Rockefeller+Plaza.+New+York%2C+NY&key=fake_key"
+    },
+    "response": {
+      "body": "{\n   \"error_message\" : \"The provided API key is invalid.\",\n   \"results\" : [],\n   \"status\" : \"REQUEST_DENIED\"\n}\n",
+      "headers": {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Date": "Sat, 03 Dec 2016 00:34:32 GMT",
+        "Pragma": "no-cache",
+        "Expires": "Fri, 01 Jan 1990 00:00:00 GMT",
+        "Cache-Control": "no-cache, must-revalidate",
+        "Access-Control-Allow-Origin": "*",
+        "Server": "mafe",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Alt-Svc": "quic=\":443\"; ma=2592000; v=\"36,35,34\"",
+        "Accept-Ranges": "none",
+        "Vary": "Accept-Language,Accept-Encoding",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

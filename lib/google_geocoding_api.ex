@@ -64,7 +64,7 @@ defmodule GoogleGeocodingApi do
 
   def types(address) do
     result = all_info(address)
-    List.first(result["results"])["types"]
+    if result, do: List.first(result["results"])["types"]
   end
 
   defp make_request(address) do

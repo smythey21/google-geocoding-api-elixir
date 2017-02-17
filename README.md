@@ -106,7 +106,7 @@ You can set your API key in `config.exs`
 
 ```elixir
 config :google_geocoding_api,
-  key: "YOUR_API_KEY"
+  api_key: "YOUR_API_KEY"
 ```
 
 ## Contributing

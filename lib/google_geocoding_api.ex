@@ -70,6 +70,7 @@ defmodule GoogleGeocodingApi do
   defp make_request(address) do
     params = %{address: address}
     if key, do: params = Map.put(params, :key, key)
+    if region, do: params = Map.put(params, :region, region)
 
     HTTPoison.start
 
@@ -83,5 +84,9 @@ defmodule GoogleGeocodingApi do
 
   defp key do
     Application.get_env(:google_geocoding_api, :api_key)
+  end
+
+  defp region do
+    Application.get_env(:google_geocoding_api, :region)
   end
 end

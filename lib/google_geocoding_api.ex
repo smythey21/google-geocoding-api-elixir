@@ -68,8 +68,10 @@ defmodule GoogleGeocodingApi do
   end
 
   defp make_request(address, opts \\ []) do
-    params = %{region: Keyword.get(opts, :region, "")}
-    |> Enum.into(%{address: address})
+    params = %{
+      address: address,
+      region: Keyword.get(opts, :region, "")
+    }
 
     if key(), do: params = Map.put(params, :key, key())
 

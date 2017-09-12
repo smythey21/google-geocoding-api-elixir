@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://maps.googleapis.com/maps/api/geocode/json?address=30+Rockefeller+Plaza.+New+York%2C+NY"
+      "url": "https://maps.googleapis.com/maps/api/geocode/json?address=30+Rockefeller+Plaza.+New+York%2C+NY&region="
     },
     "response": {
       "body": "{\n  \"status\" : \"UNKNOWN_ERROR\"\n}\n",

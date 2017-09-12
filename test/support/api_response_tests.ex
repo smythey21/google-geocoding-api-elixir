@@ -62,6 +62,13 @@ defmodule ApiResponseTests do
           assert response == unquote(success_data)
         end
       end
+
+      test "it adds options to URL if it exists" do
+        use_cassette "request_with_options", match_requests_on: [:query] do
+          response = GoogleGeocodingApi.unquote(method_name)("30 Rockefeller Plaza. New York, NY", region: "XYZ")
+          assert response == unquote(success_data)
+        end
+      end
     end
   end
 end

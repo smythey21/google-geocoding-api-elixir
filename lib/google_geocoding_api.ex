@@ -3,8 +3,8 @@ defmodule GoogleGeocodingApi do
   Provides functions to interact with Google Geocoding API.
   """
 
-  def all_info(address) do
-    result = Poison.decode!(make_request(address).body)
+  def all_info(address, opts \\ []) do
+    result = Poison.decode!(make_request(address, opts).body)
 
     case result["status"] do
       "ZERO_RESULTS" ->
@@ -22,54 +22,58 @@ defmodule GoogleGeocodingApi do
     end
   end
 
-  def geometry(address) do
-    result = all_info(address)
+  def geometry(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["geometry"]
   end
 
-  def geo_location(address) do
-    result = all_info(address)
+  def geo_location(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["geometry"]["location"]
   end
 
-  def geo_location_northeast(address) do
-    result = all_info(address)
+  def geo_location_northeast(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["geometry"]["viewport"]["northeast"]
   end
 
-  def geo_location_southwest(address) do
-    result = all_info(address)
+  def geo_location_southwest(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["geometry"]["viewport"]["southwest"]
   end
 
-  def location_type(address) do
-    result = all_info(address)
+  def location_type(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["geometry"]["location_type"]
   end
 
-  def formatted_address(address) do
-    result = all_info(address)
+  def formatted_address(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["formatted_address"]
   end
 
-  def place_id(address) do
-    result = all_info(address)
+  def place_id(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["place_id"]
   end
 
-  def address_components(address) do
-    result = all_info(address)
+  def address_components(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["address_components"]
   end
 
-  def types(address) do
-    result = all_info(address)
+  def types(address, opts \\ []) do
+    result = all_info(address, opts)
     if result, do: List.first(result["results"])["types"]
   end
 
-  defp make_request(address) do
-    params = %{address: address}
-    if key, do: params = Map.put(params, :key, key)
+  defp make_request(address, opts \\ []) do
+    params = %{
+      address: address,
+      region: Keyword.get(opts, :region, "")
+    }
+
+    if key(), do: params = Map.put(params, :key, key())
 
     HTTPoison.start
 

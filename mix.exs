@@ -22,7 +22,7 @@ defmodule GoogleGeocodingApi.Mixfile do
   defp elixirc_paths(_),     do: ["lib"]
 
   defp deps do
-    [{:httpoison, "~> 0.9.0"},
+    [{:httpoison, "~> 0.13.0"},
     {:poison, "~> 2.2 or ~> 3.0"},
     {:exvcr, "~> 0.7", only: :test},
     {:ex_doc, ">= 0.0.0", only: :dev}]

@@ -67,13 +67,11 @@ defmodule GoogleGeocodingApi do
     if result, do: List.first(result["results"])["types"]
   end
 
-  defp make_request(address, opts \\ []) do
-    params = %{
-      address: address,
-      region: Keyword.get(opts, :region, "")
-    }
-
-    if key(), do: params = Map.put(params, :key, key())
+  defp make_request(address, opts) do
+    params =
+      [address: address, region: Keyword.get(opts, :region, ""), key: key()]
+      |> Enum.filter(&(elem(&1, 1) != nil))
+      |> Enum.into(%{})
 
     HTTPoison.start
 

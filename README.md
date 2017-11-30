@@ -7,7 +7,7 @@ An elixir wrapper for Google's geocoding API
 
 ```elixir
 def deps do
-  [{:google_geocoding_api, "~> 0.1.2"}]
+  [{:google_geocoding_api, "~> 0.1.3"}]
 end
 ```
 

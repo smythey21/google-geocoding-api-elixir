@@ -3,7 +3,7 @@ defmodule GoogleGeocodingApi.Mixfile do
 
   def project do
     [app: :google_geocoding_api,
-     version: "0.1.2",
+     version: "0.1.3",
      elixir: "~> 1.3",
      elixirc_paths: elixirc_paths(Mix.env),
      build_embedded: Mix.env == :prod,

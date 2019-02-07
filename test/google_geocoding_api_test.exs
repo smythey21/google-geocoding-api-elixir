@@ -4,15 +4,14 @@ defmodule GoogleGeocodingApiTest do
 
   import ApiResponseTests
 
-  setup_all do
-    ExVCR.Config.cassette_library_dir("test/cassettes")
-    :ok
-  end
-
   setup do
+    ExVCR.Config.cassette_library_dir("test/cassettes")
+
     on_exit fn ->
       Application.delete_env(:google_geocoding_api, :api_key)
     end
+
+   :ok
   end
 
   describe "all_info" do
